@@ -1,13 +1,20 @@
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository"
+import "reflect-metadata"
+import {inject, injectable} from "tsyringe"
+
 
 interface IRequest{
     name:string,
     description:string,
 }
 
+
+@injectable()
 class CreateCategoryUseCase{
 
-    constructor(private categoriesRepository:ICategoriesRepository){
+    constructor(
+        @inject("CategoriesRepository")
+        private categoriesRepository:ICategoriesRepository){
 
 
 
@@ -19,7 +26,7 @@ class CreateCategoryUseCase{
         if (categoryAlreadyExists){
            throw new Error("Category Already Exists")
         }
-        this.categoriesRepository.create({name, description})
+        await this.categoriesRepository.create({name, description})
     }
 
 
