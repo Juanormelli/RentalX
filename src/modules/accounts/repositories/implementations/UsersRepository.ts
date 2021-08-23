@@ -13,20 +13,33 @@ class UserRepository implements IUserRepository {
 
   async create({
     name,
-    username,
+  
     password,
     driver_license,
     email,
   }): Promise<void> {
     const user = this.repository.create({
       name,
-      username,
+     
       password,
       driver_license,
       email,
     });
 
     await this.repository.save(user);
+  }
+
+  async findByEmail(email: string): Promise<User>{
+    const user = await this.repository.findOne({email});
+
+    return user
+  }
+
+  async findById(id: string): Promise<User>{
+
+    const user = await this.repository.findOne({id})
+
+    return user
   }
 }
 

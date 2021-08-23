@@ -2,6 +2,7 @@ import { ISpecificationRepository } from "../../repositories/ISpecificationRepos
 import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
 import { SpecificationRepository } from "../../repositories/implementations/SpecificationRepository";
+import { AppError } from "../../../../errors/AppError";
 interface IRequest {
   name: string;
   description: string;
@@ -19,7 +20,7 @@ class CreateSpecificationUseCase {
       await this.specificationRepository.findByName(name);
 
     if (specificationAlreadyExists) {
-      throw new Error("Specification already exists!");
+      throw new AppError("Specification already exists!",400);
     }
 
     await this.specificationRepository.create({ name, description });
