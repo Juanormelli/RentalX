@@ -17,6 +17,8 @@ class UserRepository implements IUserRepository {
     password,
     driver_license,
     email,
+    avatar,
+    id
   }): Promise<void> {
     const user = this.repository.create({
       name,
@@ -24,6 +26,8 @@ class UserRepository implements IUserRepository {
       password,
       driver_license,
       email,
+      avatar,
+      id
     });
 
     await this.repository.save(user);

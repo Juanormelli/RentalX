@@ -16,6 +16,8 @@ class CreateUserUseCase {
     password,
     driver_license,
     email,
+    avatar,
+    id
   }: ICreateUserDTO): Promise<void> {
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
@@ -29,6 +31,8 @@ class CreateUserUseCase {
       password: passwordhash,
       driver_license,
       email,
+      id, 
+      avatar
     });
   }
 }
