@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --poll --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "test": "jest"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -27,8 +28,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.1",
     "@types/jsonwebtoken": "^8.5.5",
+    "jest": "^27.0.6",
     "jsonwebtoken": "^8.5.1",
+    "ts-jest": "^27.0.5",
     "ts-node-dev": "^1.1.8"
   }
 }
