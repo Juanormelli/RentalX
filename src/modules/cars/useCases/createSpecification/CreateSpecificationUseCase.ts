@@ -1,8 +1,8 @@
 import { ISpecificationRepository } from "../../repositories/ISpecificationRepository";
 import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
-import { SpecificationRepository } from "../../repositories/implementations/SpecificationRepository";
-import { AppError } from "../../../../errors/AppError";
+import { SpecificationRepository } from "../../infra/typeorm/repositories/SpecificationRepository";
+import { AppError } from "../../../../shared/errors/AppError";
 interface IRequest {
   name: string;
   description: string;

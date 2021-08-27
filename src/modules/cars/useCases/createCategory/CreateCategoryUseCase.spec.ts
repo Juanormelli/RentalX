@@ -1,5 +1,5 @@
-import { AppError } from "../../../../errors/AppError";
-import { Category } from "../../entities/Category"
+import { AppError } from "../../../../shared/errors/AppError";
+import { Category } from "../../infra/typeorm/entities/Category"
 import{CategoriesRepositoryInMemory} from "../../repositories/in-memory/CategoriesRepositoryInMemory"
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase"
 

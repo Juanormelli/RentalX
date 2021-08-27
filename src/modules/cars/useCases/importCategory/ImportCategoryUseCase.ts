@@ -3,7 +3,7 @@ import csvParse from "csv-parse";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
-import { CategoriesRepository } from "../../repositories/implementations/CategoryRepository";
+import { CategoriesRepository } from "../../infra/typeorm/repositories/CategoryRepository";
 
 interface IImportCategory {
   name: string;

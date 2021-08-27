@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { UserRepository } from "../../repositories/implementations/UsersRepository";
+import { UserRepository } from "../../infra/typeorm/repositories/UsersRepository";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import {deleteFile} from "../../../../../src/utils/file"
 
