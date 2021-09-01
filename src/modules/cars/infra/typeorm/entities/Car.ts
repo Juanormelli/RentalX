@@ -1,26 +1,41 @@
-import { Timestamp } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, Timestamp } from "typeorm";
 import{ v4 as uuidV4} from "uuid";
+import { Category } from "./Category";
 
+@Entity("cars")
 class Car {
-
+    @PrimaryColumn()
     id: string;
     
-    name: string; 
+    @Column()
+    name:string ; 
     
+    @Column()
     description: string; 
     
-    daily_rate: string;
+    @Column()
+    daily_rate: number;
     
-    available: boolean;
-
+    @Column()
+    available:boolean;
+    
+    @Column()
     license_plate: string;
     
-    fine_amount: string;
-
+    @Column()
+    fine_amount:number;
+    
+    @Column()
     brand: string; 
 
+    @ManyToOne(()=>Category)
+    @JoinColumn({name:"category_id"})
+    category : Category
+
+    @Column()
     category_id: string;
     
+    @CreateDateColumn()
     created_at: Date;
 
 

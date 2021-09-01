@@ -3,13 +3,13 @@
 
 
 interface ICreateCarDTO{
-    name: string, 
-    description: string, 
+    name:string, 
+    description:string, 
     daily_rate:number, 
-    license_plate: string,
+    license_plate:string,
     fine_amount:number, 
-    brand: string, 
-    category_id: string,
+    brand:string, 
+    category_id:string,
 }
 
 

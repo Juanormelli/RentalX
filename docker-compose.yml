@@ -16,7 +16,7 @@ services:
 
   app:
     build: .
-    container_name: rentx
+    container_name: rentalx
     restart: always
     ports:
       - 3333:3333
