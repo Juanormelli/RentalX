@@ -11,6 +11,7 @@ class CarsRepository implements ICarsRepository {
     constructor(){
         this.repository = getRepository(Car)
     }
+   
     
     
     
@@ -36,6 +37,25 @@ class CarsRepository implements ICarsRepository {
         const car = await this.repository.findOne({license_plate})
 
         return car
+    }
+    async findAvailable(brand?: string, category_id?: string, name?: string): Promise<Car[]> {
+        const carQuery = this.repository.createQueryBuilder("c").where("available = :available",{available:true})
+
+        if (brand){
+            carQuery.andWhere("c.brand = :brand",{brand:brand})
+        }
+        
+        if (name){
+            carQuery.andWhere("c.name = :name",{name:name})
+        }
+        
+        if (category_id){
+            carQuery.andWhere("c.category_id = :category_id",{category_id:category_id})
+        }
+
+        const cars = await carQuery.getMany();
+
+        return cars
     }
     
 }
