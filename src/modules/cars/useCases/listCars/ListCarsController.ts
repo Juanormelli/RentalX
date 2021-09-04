@@ -10,9 +10,9 @@ import { ListCarsUseCase } from "./ListCarUsecase"
 class ListCarsController{
    async handle(request: Request, response: Response):Promise<Response>{
         const {brand, name,category_id}= request.query
-        console.log("Aqui")
+        
        const listCarsUseCase = container.resolve(ListCarsUseCase)
-       console.log("Aqui")
+       
 
        const cars = await listCarsUseCase.execute({
             brand:brand as string,

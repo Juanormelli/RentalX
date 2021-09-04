@@ -12,6 +12,7 @@ class SpecificationRepository implements ISpecificationRepository {
   constructor() {
     this.repository = getRepository(Specification);
   }
+  
 
   /*public static getInstance(){
         if (!SpecificationRepository.INSTANCE){
@@ -31,6 +32,9 @@ class SpecificationRepository implements ISpecificationRepository {
   async findByName(name: string): Promise<Specification> {
     const specification = this.repository.findOne({ name });
     return specification;
+  }
+  async findByIds(id: string[]): Promise<Specification[]> {
+    
   }
 }
 
