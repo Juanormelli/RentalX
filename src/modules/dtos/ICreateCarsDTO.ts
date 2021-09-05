@@ -1,3 +1,4 @@
+import { Specification } from "../cars/infra/typeorm/entities/Specification";
 
 
 
@@ -10,7 +11,8 @@ interface ICreateCarDTO{
     fine_amount:number, 
     brand:string, 
     category_id:string,
-    specification?:string[]
+    specifications?:Specification[]
+    id?: string;
 }
 
 

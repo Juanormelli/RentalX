@@ -39,7 +39,7 @@ describe("Should be able to list all availables cars!", () => {
     });
 
     const cars = await listCarsUseCase.execute({ name: "3008" });
-    console.log(cars);
+    
 
     expect(cars).toEqual([car]);
   });
@@ -55,7 +55,7 @@ describe("Should be able to list all availables cars!", () => {
     });
 
     const cars = await listCarsUseCase.execute({ brand: "Peugeot2" });
-    console.log(cars);
+    
 
     expect(cars).toEqual([car]);
   });
@@ -71,7 +71,7 @@ describe("Should be able to list all availables cars!", () => {
     });
 
     const cars = await listCarsUseCase.execute({ category_id: "e80fd701-075c-4920-bb22-6b2dff5091aa" });
-    console.log(cars);
+    
 
     expect(cars).toEqual([car]);
   });
