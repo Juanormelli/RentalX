@@ -9,6 +9,7 @@ export class CreateUsers1629464040318 implements MigrationInterface {
           {
             name: "id",
             type: "uuid",
+            isPrimary: true
           },
           {
             name: "name",
@@ -46,5 +47,7 @@ export class CreateUsers1629464040318 implements MigrationInterface {
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("users")
+  }
 }
