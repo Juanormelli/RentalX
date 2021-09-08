@@ -1,12 +1,13 @@
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
 
+
+import { IDateProvider } from "../../../../shared/container/providers/DateProvider/IDateProvider";
+import { DayJsDateProvider } from "../../../../shared/container/providers/DateProvider/implementations/DayJsDateProvider";
 import { AppError } from "../../../../shared/errors/AppError";
 import { Rental } from "../../infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "../../repository/IRentalsRepository";
 
 
-dayjs.extend(utc)
+
 
 interface IRequest{
     user_id: string;
@@ -19,7 +20,8 @@ interface IRequest{
 class CreateRentalUseCase{
 
     constructor(
-        private rentalsRepository:IRentalsRepository
+        private rentalsRepository:IRentalsRepository,
+        private dataProvider:IDateProvider
     ){
 
     }
@@ -39,10 +41,12 @@ class CreateRentalUseCase{
             throw new AppError("User have another rental open", 400)
         }
 
-        const expectedReturnDateFormat = dayjs(expect_return_date).utc().local().format()
-        const dateNow = dayjs().utc().local().format()
-        const compare = dayjs(expectedReturnDateFormat).diff(dateNow, "hours")
+        
+        
 
+        const compare = await this.dataProvider.compare(this.dataProvider.dateNow(),expect_return_date)
+        
+        console.log(compare)
         if(compare < minRentTime){
             throw new AppError("The rent minimum time is 24 hours", 400)
         }
