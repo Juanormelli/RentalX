@@ -1,4 +1,5 @@
 import { AppError } from "../../../../shared/errors/AppError";
+import { Rental } from "../../infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "../../repository/IRentalsRepository";
 
 
@@ -18,7 +19,7 @@ class CreateRentalUseCase{
 
     }
 
-    async execute({user_id, car_id, expect_return_date}:IRequest): Promise<void>{
+    async execute({user_id, car_id, expect_return_date}:IRequest): Promise<Rental>{
 
         const carsUnAvailable= await this.rentalsRepository.findOpenRentalByCarId(car_id);
 
@@ -32,6 +33,10 @@ class CreateRentalUseCase{
         if(rentalOpenToUser){
             throw new AppError("User have another rental open", 400)
         }
+
+        const rent = await this.rentalsRepository.create({user_id, car_id, expect_return_date})
+
+        return rent
 
 
     }
