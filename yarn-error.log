@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\juan_\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add dayjs
+  C:\Program Files\nodejs\node.exe C:\Users\juan_\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add supertest @types/supertest
 
 PATH: 
   C:\Users\juan_\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\juan_\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\HashiCorp\Vagrant\bin;C:\Users\juan_\AppData\Local\Microsoft\WindowsApps;C:\Users\juan_\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\juan_\AppData\Roaming\npm;C:\Users\juan_\.dotnet\tools;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -36,6 +36,7 @@ npm manifest:
       "bcrypt": "^5.0.1",
       "bcryptjs": "^2.4.3",
       "csv-parse": "^4.16.0",
+      "dayjs": "^1.10.6",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
       "multer": "^1.4.2",
@@ -1393,6 +1394,11 @@ Lockfile:
       abab "^2.0.3"
       whatwg-mimetype "^2.3.0"
       whatwg-url "^8.0.0"
+  
+  dayjs@^1.10.6:
+    version "1.10.6"
+    resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.6.tgz#288b2aa82f2d8418a6c9d4df5898c0737ad02a63"
+    integrity sha512-AztC/IOW4L1Q41A86phW5Thhcrco3xuAA+YX/BLpLWWjRcTj5TOt/QImBLmCKlrF7u7k47arTnOyL6GnbG8Hvw==
   
   debug@2.6.9:
     version "2.6.9"

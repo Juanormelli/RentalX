@@ -1,4 +1,5 @@
-import { query } from "express";
+
+
 import {MigrationInterface, QueryRunner} from "typeorm";
 
 export class UpdateRentalTable1631118792007 implements MigrationInterface {
