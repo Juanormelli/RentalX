@@ -32,12 +32,29 @@ describe("Create Category Controller", () => {
         password:"admin"
     })
 
-    console.log(responseToken.body)
     const response = await request(app).post("/categories").send({
-      name: "Teste",
-      description: "Teste",
+      name: "Teste Controller",
+      description: "Teste 01",
     }).auth(responseToken.body.token,{type: 'bearer'} );
 
     expect(response.status).toBe(201);
   });
+
+  it("Should not be able to create a category with same name ", async () => {
+    const responseToken = await request(app).post("/sessions").send({
+        email:"admin@rentx.com.br",
+        password:"admin"
+    })
+
+    
+    
+    const response = await request(app).post("/categories").send({
+      name: "Teste Controller",
+      description: "Teste",
+    }).auth(responseToken.body.token,{type: 'bearer'} );
+
+    expect(response.status).toBe(401);
+  });
+
+
 });
