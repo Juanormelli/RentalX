@@ -1,9 +1,11 @@
 import { json } from "express";
+import { isThisTypeNode } from "typescript";
 import { ICreateCarDTO } from "../../../dtos/ICreateCarsDTO";
 import { Car } from "../../infra/typeorm/entities/Car";
 import { ICarsRepository } from "../ICarsRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
+  
   
   cars: Car[] = [];
 
@@ -64,6 +66,12 @@ class CarsRepositoryInMemory implements ICarsRepository {
     const car = this.cars.find((car)=> car.id === id)
 
     return car
+  }
+
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    const car = this.cars.findIndex((car)=>car.id === id )
+    this.cars[car].available = available;
+
   }
 
 }

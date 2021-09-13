@@ -4,6 +4,8 @@ import { inject, injectable } from "tsyringe";
 import { IDateProvider } from "../../../../shared/container/providers/DateProvider/IDateProvider";
 import { DayJsDateProvider } from "../../../../shared/container/providers/DateProvider/implementations/DayJsDateProvider";
 import { AppError } from "../../../../shared/errors/AppError";
+import { CarsRepository } from "../../../cars/infra/typeorm/repositories/CarsRepository";
+import { ICarsRepository } from "../../../cars/repositories/ICarsRepository";
 import { Rental } from "../../infra/typeorm/entities/Rental";
 import { IRentalsRepository} from "../../repository/IRentalsRepository";
 
@@ -24,7 +26,9 @@ class CreateRentalUseCase{
         @inject("RentalRepository")
         private rentalsRepository:IRentalsRepository,
         @inject("DayJsDateProvider")
-        private dataProvider:IDateProvider
+        private dataProvider:IDateProvider,
+        @inject("CarsRepository")
+        private carsRepository:ICarsRepository
     ){
 
     }
@@ -55,6 +59,8 @@ class CreateRentalUseCase{
         }
 
         const rent = await this.rentalsRepository.create({user_id, car_id, expect_return_date})
+
+        await this.carsRepository.updateAvailable(car_id, false)
 
         return rent
 
