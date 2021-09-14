@@ -31,3 +31,6 @@ container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository)
 container.registerSingleton<ICarsImageRepository>("CarsImagesRepository", CarsImagesRepository)
 
 container.registerSingleton<IRentalsRepository>("RentalRepository", RentalRepository)
+
+//container.registerSingleton<IRentalsRepository>("DevolutionRepository", Repository)
+
