@@ -53,7 +53,7 @@ describe("Create Category Controller", () => {
       description: "Teste",
     }).auth(responseToken.body.token,{type: 'bearer'} );
 
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(400);
   });
 
 

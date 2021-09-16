@@ -28,10 +28,10 @@ class DevolutionRentalUseCase{
         const minRentTime = 1
 
         if (! rental){
-            throw new AppError("Rental does not exist",400)
+            throw new AppError("Rental does not exist")
         }
         if (rental.end_date!==null){
-            throw new AppError("Rental already closed", 400)
+            throw new AppError("Rental already closed")
         }
 
         const dateNow = this.dataProvider.dateNow()

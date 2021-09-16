@@ -38,14 +38,14 @@ class CreateRentalUseCase{
         const carsUnAvailable= await this.rentalsRepository.findOpenRentalByCarId(car_id);
         const minRentTime= 24
         if (carsUnAvailable){
-            throw new AppError("Car is unavailable",400)
+            throw new AppError("Car is unavailable")
 
         }
 
         const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(user_id)
 
         if(rentalOpenToUser){
-            throw new AppError("User have another rental open", 400)
+            throw new AppError("User have another rental open")
         }
 
         
@@ -55,7 +55,7 @@ class CreateRentalUseCase{
         
         console.log(compare)
         if(compare < minRentTime){
-            throw new AppError("The rent minimum time is 24 hours", 400)
+            throw new AppError("The rent minimum time is 24 hours")
         }
 
         const rent = await this.rentalsRepository.create({user_id, car_id, expect_return_date})

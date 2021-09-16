@@ -13,7 +13,7 @@ export async function ensureAuthenticated(request: Request, response: Response, 
 
 
     if (!authHeader){
-        throw new AppError("Token Missing",401)
+        throw new AppError("Token Missing")
     }
 
     const [, token] = authHeader.split(" ")
@@ -24,7 +24,7 @@ export async function ensureAuthenticated(request: Request, response: Response, 
         const usersRepository = new UserRepository();
         const user = await usersRepository.findById(user_id);
         if (!user){
-            throw new AppError("User does note exists",401)
+            throw new AppError("User does note exists")
         }
 
         request.user = {
@@ -34,7 +34,7 @@ export async function ensureAuthenticated(request: Request, response: Response, 
 
     }
     catch{  
-        throw new AppError("Invalid Token",401)
+        throw new AppError("Invalid Token")
 
     }
 
