@@ -5,6 +5,7 @@ import { IDateProvider } from "../IDateProvider";
 dayjs.extend(utc)
 
 class DayJsDateProvider implements IDateProvider {
+    
    
     
    
@@ -30,6 +31,10 @@ class DayJsDateProvider implements IDateProvider {
         const compare = dayjs(endDateFormat).diff(startDateFormat, "days")
 
         return compare
+    }
+
+    addDays(days: number):Date {
+        return dayjs().add(days,"days").toDate()
     }
     
 }
