@@ -1,6 +1,8 @@
 import { container } from "tsyringe";
 import "reflect-metadata";
-import "../container/providers"
+import "./providers"
+
+
 import { ICategoriesRepository } from "../../modules/cars/repositories/ICategoriesRepository";
 import { CategoriesRepository } from "../../modules/cars/infra/typeorm/repositories/CategoryRepository";
 import { ISpecificationRepository } from "../../modules/cars/repositories/ISpecificationRepository";
