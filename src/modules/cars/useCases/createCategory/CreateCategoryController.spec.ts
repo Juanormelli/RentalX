@@ -35,7 +35,7 @@ describe("Create Category Controller", () => {
     const response = await request(app).post("/categories").send({
       name: "Teste Controller",
       description: "Teste 01",
-    }).auth(responseToken.body.token,{type: 'bearer'} );
+    }).auth(responseToken.body.refresh_token,{type: 'bearer'} );
 
     expect(response.status).toBe(201);
   });
@@ -51,7 +51,7 @@ describe("Create Category Controller", () => {
     const response = await request(app).post("/categories").send({
       name: "Teste Controller",
       description: "Teste",
-    }).auth(responseToken.body.token,{type: 'bearer'} );
+    }).auth(responseToken.body.refresh_token,{type: 'bearer'} );
 
     expect(response.status).toBe(400);
   });

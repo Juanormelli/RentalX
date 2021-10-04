@@ -37,7 +37,7 @@ describe("List Categories", () => {
         name: "Teste 01",
         description: "Teste 01",
       })
-      .auth(responseToken.body.token, { type: "bearer" });
+      .auth(responseToken.body.refresh_token, { type: "bearer" });
 
     await request(app)
       .post("/categories")
@@ -45,7 +45,7 @@ describe("List Categories", () => {
         name: "Teste 02",
         description: "Teste 01",
       })
-      .auth(responseToken.body.token, { type: "bearer" });
+      .auth(responseToken.body.refresh_token, { type: "bearer" });
 
     const categories = await request(app).get("/categories");
 

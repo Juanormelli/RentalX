@@ -6,6 +6,7 @@ import { UsersToken } from "../entities/UserToken";
 
 
 class UsersTokensRepository implements IUsersTokensRepository {
+    
     private repository : Repository<UsersToken>
 
     constructor(){

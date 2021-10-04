@@ -10,6 +10,7 @@ import { AppError } from "../../../../shared/errors/AppError"
 import { UsersTokensRepository } from "../../infra/typeorm/repositories/UsersTokensRepository"
 import auth from "../../../../config/auth"
 import { DayJsDateProvider } from "../../../../shared/container/providers/DateProvider/implementations/DayJsDateProvider"
+import { IUsersTokensRepository } from "../../repositories/IUsersTokensRepository"
 
 interface IRequest{
     email: string;
@@ -31,7 +32,7 @@ class AuthenticateUserUseCase{
         @inject("UserRepository")
         private usersRepository:IUserRepository,
         @inject("UsersTokensRepository")
-        private usersTokensRepository:UsersTokensRepository,
+        private usersTokensRepository:IUsersTokensRepository,
         @inject("DayJsDateProvider")
         private dayJsDateProvider:DayJsDateProvider
 ){}
