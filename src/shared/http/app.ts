@@ -10,11 +10,13 @@ import swaggerFile from "../../swagger.json";
 
 import createConnection from "../infra/typeorm";
 import "../container";
+import  cors  from 'cors';
 
 
 createConnection();
 const app = express();
 app.use(express.json());
+app.use(cors())
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`))
